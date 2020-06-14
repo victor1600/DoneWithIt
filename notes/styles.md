@@ -248,6 +248,48 @@ export default function App() {
 
 ![3](images/inequally.png)
 
+### Example: Giving elements a fixed size
+
+```javascript
+import React from "react";
+import { View, StyleSheet } from "react-native";
+
+export default function App() {
+  return (
+    <View
+      style={{
+        backgroundColor: "#fff",
+        flex: 1,
+      }}
+    >
+      <View
+        style={{
+          backgroundColor: "dodgerblue",
+          width: 100,
+          height: 100,
+        }}
+      />
+      <View
+        style={{
+          backgroundColor: "gold",
+          width: 100,
+          height: 100,
+        }}
+      />
+      <View
+        style={{
+          backgroundColor: "tomato",
+          width: 100,
+          height: 100,
+        }}
+      />
+    </View>
+  );
+}
+```
+
+![fixed](images/fixed.png)
+
 ### FlexDirection
 
 By default the views get layed up vertically, but we can change the default behaviour

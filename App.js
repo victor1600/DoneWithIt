@@ -5,26 +5,29 @@ export default function App() {
   return (
     <View
       style={{
-        backgroundColor: "dodgerblue",
+        backgroundColor: "#fff",
         flex: 1,
       }}
     >
       <View
         style={{
           backgroundColor: "dodgerblue",
-          flex: 1,
+          width: 100,
+          height: 100,
         }}
       />
       <View
         style={{
           backgroundColor: "gold",
-          flex: 3,
+          width: 100,
+          height: 100,
         }}
       />
       <View
         style={{
           backgroundColor: "tomato",
-          flex: 1,
+          width: 100,
+          height: 100,
         }}
       />
     </View>
