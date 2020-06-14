@@ -163,9 +163,9 @@ export default function App() {
 flex: 1;
 ```
 
-The view is flexible and will extend vertically and horizontally to fill the space.
+If we set `flex:1` The view is flexible and will extend vertically and horizontally to fill the space.
 
-### example: Placing child views inside another
+### example: Dividing space equally
 
 If we set the value of each children equal to 1, the space will get divided
 equally
@@ -205,8 +205,48 @@ export default function App() {
 }
 ```
 
-Result:
 ![3](images/3-sections.png)
+
+### Example: Giving more space to a section
+
+If we set flex to be greater that its siblings, it will take more space
+
+```javascript
+import React from "react";
+import { View, StyleSheet } from "react-native";
+
+export default function App() {
+  return (
+    <View
+      style={{
+        backgroundColor: "dodgerblue",
+        flex: 1,
+      }}
+    >
+      <View
+        style={{
+          backgroundColor: "dodgerblue",
+          flex: 1,
+        }}
+      />
+      <View
+        style={{
+          backgroundColor: "gold",
+          flex: 3,
+        }}
+      />
+      <View
+        style={{
+          backgroundColor: "tomato",
+          flex: 1,
+        }}
+      />
+    </View>
+  );
+}
+```
+
+![3](images/inequally.png)
 
 ### FlexDirection
 
