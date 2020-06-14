@@ -7,23 +7,34 @@ export default function App() {
       style={{
         flex: 1,
         backgroundColor: "#fff",
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
       }}
     >
       <View
         style={{
-          flex: 1,
+          flexBasis: 100,
+          width: 100,
+          height: 100,
           backgroundColor: "dodgerblue",
         }}
       />
       <View
         style={{
-          flex: 1,
+          width: 100,
+          height: 100,
           backgroundColor: "tomato",
+          left: 20,
+          top: 20,
+          position: "absolute",
+          //alignSelf: "flex-start",
         }}
       />
       <View
         style={{
-          flex: 1,
+          width: 100,
+          height: 100,
           backgroundColor: "gold",
         }}
       />

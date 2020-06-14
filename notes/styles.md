@@ -157,9 +157,7 @@ export default function App() {
 }
 ```
 
-# Individual elements
-
-## Flex
+# Flexbox
 
 ```javascript
 flex: 1;
@@ -209,3 +207,184 @@ export default function App() {
 
 Result:
 ![3](images/3-sections.png)
+
+### FlexDirection
+
+By default the views get layed up vertically, but we can change the default behaviour
+depending on what we need:
+
+- row: Lay thins horizontally, main axis is the horizontal
+- row-reverse
+- column: default value, main axis is vertical
+- column-reverse
+
+> Doing so, we define our main axis!
+
+## Alignin items inside container
+
+### justifyContent
+
+Align elements along the **main axis**
+
+- center
+- fle-end: end of the axis
+- flex-start: the default value
+- space around: Space between each item is equal, except for the first and last element.
+- space-evenly: same across all elements
+- space-between: First and last elements are pushed to the **edges** of the screen.
+
+## alignItems
+
+Align items accross the secondary axis.
+
+- center
+- flex-end: Items will appear at the end of the secondary axis
+- flex-start: start of the secondary axis
+- stretch: The elemen will stretch to fill the entire secondary axis. Works if we dont set fixed dimensions like height:100, width:100. **Its the default value**
+- baseline: Put the same baseline on each item
+  ![baseline](images/baseline.png)
+
+## alignSelf
+
+It will apply to the individual element, and ignoring the container definition
+
+## flexWrap
+
+Default behaviour: If our items overflow accross the main axis, one or more items allong it get shrunk so other items can fit the screen
+![default](images/default.png).
+
+- nowrap: default mode
+- wrap
+
+## Align all content as whole: alignContent
+
+When we enable wrapping, alignItems property behaves a little different.
+If we have multiple lines, aligItems property determines the alignment of items within each line.
+
+Takes same string arguments as justifyContent
+
+Align the entire content as whole
+
+> It only works if we have wrapping, otherwise, it doesnt has an effect
+
+## flexBasis
+
+Set size of an item along the primary axis. It can map widht or height, depending of
+flexDirection
+
+## flexGrow
+
+Sames a flex
+
+## flexShrink
+
+Opposite of grow.
+
+> Its like saying: If you have overflowing, this item can get shrunk so other items can fit in
+
+## flex is a shorhand for flexGrow and flexShrink
+
+if we set flex to -1, negative number, its exactly the same to setting flexShrink
+
+## Absolute and Relative Positioning
+
+**Useful for moving an element without chaning the layout around it.**
+With these properties we can position a component relative to its current position
+without affecting the layout around it
+
+### Top and Bottom
+
+#### Example: Moving element 20 positions
+
+Moving 20 positiosn from top.
+
+Applying to tomato:
+
+```javascript
+top: 20;
+```
+
+or
+
+```javascript
+bottom: -20;
+```
+
+![20](images/20.png)
+
+```javascript
+top: -20;
+```
+
+Or
+
+```javascript
+bottom: 20;
+```
+
+![-20](images/-20.png)
+
+### Left and Right
+
+Same behaviour as top and bottom.
+
+### Position
+
+**Affects layout around element**
+By default each view uses relative. But if we change it **absolute** the element
+will place relative to its parent(container) and the other views will move around as a result.
+
+### Example:
+
+- Move 20 px to left and top from parent container
+- Others view moved around
+
+```javascript
+import React from "react";
+import { View } from "react-native";
+
+export default function App() {
+  return (
+    <View
+      style={{
+        flex: 1,
+        backgroundColor: "#fff",
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <View
+        style={{
+          flexBasis: 100,
+          width: 100,
+          height: 100,
+          backgroundColor: "dodgerblue",
+        }}
+      />
+      <View
+        style={{
+          width: 100,
+          height: 100,
+          backgroundColor: "tomato",
+          left: 20,
+          top: 20,
+          position: "absolute",
+          //alignSelf: "flex-start",
+        }}
+      />
+      <View
+        style={{
+          width: 100,
+          height: 100,
+          backgroundColor: "gold",
+        }}
+      />
+    </View>
+  );
+}
+```
+
+![absolute](images/absolute.png)
+
+> If you use relative positioning, other views wont move, if we use absolute, other views will be repositioned.
