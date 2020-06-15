@@ -290,10 +290,10 @@ export default function App() {
 
 ![fixed](images/fixed.png)
 
-### FlexDirection
+## FlexDirection
 
-By default the views get layed up vertically, but we can change the default behaviour
-depending on what we need:
+> By default the views get layed up vertically, but we can change the default behaviour
+> depending on what we need:
 
 - row: Lay thins horizontally, main axis is the horizontal
 - row-reverse
@@ -302,7 +302,10 @@ depending on what we need:
 
 > Doing so, we define our main axis!
 
-## Alignin items inside container
+### Usage tips
+
+- Set it just for container!
+- If you want to move individual elements, wrap them inside a div that serves as a container
 
 ### justifyContent
 
@@ -315,6 +318,10 @@ Align elements along the **main axis**
 - space-evenly: same across all elements
 - space-between: First and last elements are pushed to the **edges** of the screen.
 
+> For container
+
+#### Example
+
 ## alignItems
 
 Align items accross the secondary axis.
@@ -324,7 +331,12 @@ Align items accross the secondary axis.
 - flex-start: start of the secondary axis
 - stretch: The elemen will stretch to fill the entire secondary axis. Works if we dont set fixed dimensions like height:100, width:100. **Its the default value**
 - baseline: Put the same baseline on each item
-  ![baseline](images/baseline.png)
+
+![baseline](images/baseline.png)
+
+> For container
+
+# Aligning individual
 
 ## alignSelf
 
