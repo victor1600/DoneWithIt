@@ -332,6 +332,8 @@ Align items accross the secondary axis.
 - stretch: The elemen will stretch to fill the entire secondary axis. Works if we dont set fixed dimensions like height:100, width:100. **Its the default value**
 - baseline: Put the same baseline on each item
 
+#### BaseLine Example
+
 ![baseline](images/baseline.png)
 
 > For container
@@ -341,6 +343,51 @@ Align items accross the secondary axis.
 ## alignSelf
 
 It will apply to the individual element, and ignoring the container definition
+
+```javascript
+import React from "react";
+import { View, StyleSheet, ImageBackground } from "react-native";
+const Blocks = () => {
+  return (
+    <View
+      style={{
+        backgroundColor: "#fff",
+        flex: 1,
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <View
+        style={{
+          backgroundColor: "dodgerblue",
+          width: 100,
+          height: 300,
+          alignSelf: "flex-start",
+        }}
+      />
+      <View
+        style={{
+          backgroundColor: "gold",
+          width: 100,
+          height: 200,
+        }}
+      />
+      <View
+        style={{
+          backgroundColor: "tomato",
+          width: 100,
+          height: 100,
+        }}
+      />
+    </View>
+  );
+};
+
+export default Blocks;
+```
+
+![barras](images/barras.png)
 
 ## flexWrap
 

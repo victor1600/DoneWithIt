@@ -6,63 +6,35 @@ const Blocks = () => {
       style={{
         backgroundColor: "#fff",
         flex: 1,
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
       }}
     >
-      <View style={styles.up}>
-        <View style={styles.separated}>
-          <View style={styles.leftV} />
-          <View style={styles.rightV} />
-          <View />
-        </View>
-      </View>
-      <View style={styles.center}>
-        <ImageBackground
-          style={styles.back}
-          source={require("../assets/chair.jpg")}
-        />
-      </View>
-      <View style={styles.down} />
+      <View
+        style={{
+          backgroundColor: "dodgerblue",
+          width: 100,
+          height: 300,
+          alignSelf: "flex-start",
+        }}
+      />
+      <View
+        style={{
+          backgroundColor: "gold",
+          width: 100,
+          height: 200,
+        }}
+      />
+      <View
+        style={{
+          backgroundColor: "tomato",
+          width: 100,
+          height: 100,
+        }}
+      />
     </View>
   );
 };
 
 export default Blocks;
-
-const styles = StyleSheet.create({
-  up: {
-    backgroundColor: "black",
-    flex: 1,
-  },
-  center: {
-    flex: 3,
-    backgroundColor: "dodgerblue",
-  },
-  down: {
-    backgroundColor: "black",
-    flex: 1,
-  },
-  separated: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-
-  leftV: {
-    backgroundColor: "#fc5c65",
-    height: 60,
-    width: 60,
-    top: 20,
-  },
-  rightV: {
-    backgroundColor: "#4ECDC4",
-    height: 60,
-    width: 60,
-    top: 20,
-    left: 140,
-  },
-  img: {},
-  back: {
-    flex: 1,
-    resizeMode: "cover",
-    // justifyContent: "center",
-  },
-});
