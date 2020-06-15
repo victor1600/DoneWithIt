@@ -143,3 +143,46 @@ const styles = StyleSheet.create({
   },
 });
 ```
+
+## Creating a custom button
+
+1. Create appButton component
+2. Create a text component
+3. Create style for red and rounded corners
+4. Create style for text
+5. Wrap up everything between Touchable Opacity, to make a button
+6. Apply style to touchableOpacity
+7. Define onPress property
+8. Define `onPress` as a prop that will get received from above
+
+```javascript
+import React from "react";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import colors from "../config/colors";
+const AppButton = ({ title, onPress }) => {
+  return (
+    <TouchableOpacity style={styles.button} onPress={onPress}>
+      <Text style={styles.text}>{title}</Text>
+    </TouchableOpacity>
+  );
+};
+
+export default AppButton;
+
+const styles = StyleSheet.create({
+  button: {
+    backgroundColor: colors.primary,
+    borderRadius: 25,
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 15,
+    width: "100%",
+  },
+  text: {
+    color: colors.white,
+    fontSize: 18,
+    textTransform: "uppercase",
+    fontWeight: "bold",
+  },
+});
+```

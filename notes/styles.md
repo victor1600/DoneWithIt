@@ -623,3 +623,185 @@ export default function App() {
 ![margin](images/margin.png)
 
 ## Styling Text
+
+- Font is platform dependent
+
+```javascript
+import React from "react";
+
+import Blocks from "./components/Blocks";
+import WelcomeScreen from "./app/screens/WelcomeScreen";
+import ViewImageScreen from "./app/screens/ViewImageScreen";
+import { View, Text, Platform } from "react-native";
+export default function App() {
+  return (
+    <View
+      style={{
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <Text
+        style={{
+          fontFamily: Platform.OS === "android" ? "Roboto" : "Courier",
+          fontSize: 30,
+          fontStyle: "italic",
+          fontWeight: "600",
+          color: "tomato",
+          textTransform: "capitalize",
+          textAlign: "center",
+          lineHeight: 30,
+          // textDecorationLine: "line-through",
+        }}
+      >
+        I love React Native! My First react native app!
+      </Text>
+    </View>
+  );
+}
+```
+
+![RN](images/RN.png)
+
+## Encapsulate styles
+
+- We create a custom component
+  > props.children: especial prop, whatever prop we pass to the component will be available in child property.
+
+#### AppJs
+
+```javascript
+import React from "react";
+
+import { View, Text, Platform } from "react-native";
+
+import AppText from "./app/components/AppText";
+
+export default function App() {
+  return (
+    <View
+      style={{
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <AppText>I love React Native! My First react native app!</AppText>
+    </View>
+  );
+}
+```
+
+#### AppText Custom component
+
+```javascript
+import React from "react";
+import { StyleSheet, Text, View, Platform } from "react-native";
+
+export default function AppText(props) {
+  return <Text style={styles.text}>{props.children}</Text>;
+}
+
+const styles = StyleSheet.create({
+  text: {
+    fontSize: 18,
+    fontFamily: Platform.OS === "android" ? "Roboto" : "Avenir",
+  },
+});
+```
+
+![font](images/font.png)
+
+## Icons
+
+[Expo icons](https://icons.expo.fyi/)
+
+- Import MatericalCommunityIcons
+
+```javascript
+import React from "react";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { View, Text, Platform } from "react-native";
+
+import AppText from "./app/components/AppText";
+
+export default function App() {
+  return (
+    <View
+      style={{
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <MaterialCommunityIcons name="email" size={60} color="dodgerblue" />
+    </View>
+  );
+}
+```
+
+![icon](images/icon.png)
+
+## Platform specific code
+
+We can define all code for ios, and for android in an object
+using `Platform.select`. That method returns an object, dependind of its
+current platform
+
+- Platform.select takes in an object:
+  - We can have keys for ios and android
+
+We use `...` to spread the object to copy its properties to the text object.
+
+## Platform specific code 2d approach
+
+We can have completely different implementations of our components, its useful if we
+want customize the behaviour.
+
+- Create a component with convetion:
+  - ComponentName.ios.js
+  - ComponentName.Android.js
+
+If we do it like this, we import AppText component exact like before,
+and setup will import right implementation for the current platform.
+
+## Organizing styles (Optional)
+
+- Create folder for component
+- Create styles js
+- Place styles constant
+- Export it
+
+```javascript
+import { Stylesheet } from "react-native";
+
+const styles = StyleSheet.create({
+  text: {
+    color: "tomato",
+    ...Platform.select({
+      ios: {
+        fontSize: 20,
+        fontFamily: "Avenir",
+      },
+      android: {
+        fontSize: 18,
+        fontFamily: "Roboto",
+      },
+    }),
+  },
+});
+
+export default styles;
+```
+
+- Create index.js file in the folder
+- Export
+
+```javascript
+import AppText from "./AppText";
+
+export default AppText;
+```
+
+> This will simplifiy the AppText import route
