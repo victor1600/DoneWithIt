@@ -108,6 +108,38 @@ const styles = StyleSheet.create({
 });
 ```
 
-## Detecting Platform specfic + proper way to preven alignment on top
+## Allowing a component to expand along an axis
 
-Example: Adding padding if current Device is Android
+We use resizeMode to contain
+
+```javascript
+{
+  width: "100%";
+}
+```
+
+## Fitting in a big image
+
+```javascript
+import React from "react";
+import { StyleSheet, Text, View, Image } from "react-native";
+
+const ViewImageScreen = () => {
+  return (
+    <Image
+      resizeMode="contain"
+      style={styles.image}
+      source={require("../assets/chair.jpg")}
+    />
+  );
+};
+
+export default ViewImageScreen;
+
+const styles = StyleSheet.create({
+  image: {
+    width: "100%",
+    height: "100%",
+  },
+});
+```

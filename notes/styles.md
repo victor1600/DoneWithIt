@@ -529,3 +529,97 @@ export default function App() {
 ![absolute](images/absolute.png)
 
 > If you use relative positioning, other views wont move, if we use absolute, other views will be repositioned.
+
+## Borders
+
+```javascript
+import React from "react";
+
+import Blocks from "./components/Blocks";
+import WelcomeScreen from "./app/screens/WelcomeScreen";
+import ViewImageScreen from "./app/screens/ViewImageScreen";
+import { View } from "react-native";
+export default function App() {
+  return (
+    <View
+      style={{
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <View
+        style={{
+          backgroundColor: "dodgerblue",
+          width: 100,
+          height: 100,
+          borderWidth: 10,
+          borderColor: "royalblue",
+          borderRadius: 50,
+        }}
+      ></View>
+    </View>
+  );
+}
+```
+
+![circle](images/circle.png)
+
+## Paddings and Margins
+
+Padding vs Margin Difference
+![pad](images/padding.jpg)
+
+Padding not working in Android?
+
+```javascript
+import React from "react";
+
+import Blocks from "./components/Blocks";
+import WelcomeScreen from "./app/screens/WelcomeScreen";
+import ViewImageScreen from "./app/screens/ViewImageScreen";
+import { View } from "react-native";
+export default function App() {
+  return (
+    <View
+      style={{
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <View
+        style={{
+          backgroundColor: "dodgerblue",
+          width: 100,
+          height: 100,
+          elevation: 20,
+        }}
+      >
+        <View
+          style={{
+            backgroundColor: "gold",
+            width: 50,
+            height: 50,
+            padding: 20,
+            paddingHorizontal: 10,
+            paddingLeft: 30,
+          }}
+        />
+      </View>
+      <View
+        style={{
+          backgroundColor: "tomato",
+          width: 100,
+          height: 100,
+          margin: 20,
+        }}
+      />
+    </View>
+  );
+}
+```
+
+![margin](images/margin.png)
+
+## Styling Text
