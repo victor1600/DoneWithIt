@@ -88,3 +88,39 @@ For close and deleteIcon:
 For image:
 
 - We allow it to grow giving it "100%"
+
+# Card Component
+
+### Structure
+
+We send title, subtitle and image prop from app.js
+
+## Functionality
+
+- **Temporary solution**: We cant just pass in the image url as a prop and read it with require, because we cant load it dynamically, instead, we send the path along with require to card.
+
+- We send in custom style to our custom component AppText, to override defaults. But we have to make changes over there as well.
+
+```javascript
+const AppText = ({ children, style }) => {
+  return <Text style={[styles.text, style]}>{children}</Text>;
+};
+```
+
+### Style
+
+- The image is too big and does fit the screen
+- We create a container for text.
+- Apply padding so the space with text in card increases
+
+- We have overflow of the image inside container, thats why the rounder corners aren showing up, to solve this, we have to set in card container: `overflow:"hidden"`
+
+# ListingDetailsScreen
+
+## Style
+
+In main container we want set flex direction to row, because we want to laid the image and title and subtitle horizontally.
+
+We set the imag borderRadius to be half of its weight and height, so it becomes a circle. And add a marging Right so there is space between image and text.
+
+-We add a container for text next to image, so we cant set flex direction column
