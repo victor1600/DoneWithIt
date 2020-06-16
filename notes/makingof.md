@@ -73,6 +73,7 @@ In `touchableOpacity` style property, we want to override backGround color so it
 1. We create a view that will be a container
 2. Place inside two views that will later be buttons
 3. We place an image and set resizeMode to contain so it doesn takes the whole scren.
+4. We add icons inside of views created in step 2
 
 ## Style
 
