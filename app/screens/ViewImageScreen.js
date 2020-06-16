@@ -13,7 +13,7 @@ const ViewImageScreen = () => {
         <MaterialCommunityIcons
           color="white"
           size={35}
-          name="thrash-can-outline"
+          name="trash-can-outline"
         />
       </View>
       <Image
