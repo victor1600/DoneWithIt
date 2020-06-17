@@ -24,7 +24,7 @@
 ## Structure
 
 - Place everything inside Screen reusable, so its not so close to the top edge of the screen.
-- We use flatlist and pass in our ListItem component.
+- We use flatlist and pass in our **ListItem** custom component.
 - We wrap everything up sinde `SafeAreaView`, so in Ios, doesnt interfer with the upper part.
 
 ## Functionality
@@ -35,6 +35,19 @@ We use `ItemSeparatorComponent` in **FlatList** to separate each element.
 We send in our custom separator.
 
 > Notice that when we pass in the component to **ListItemSeparator** prop in FlatList, **we dont use <>**
+
+### Desing patern
+
+This component should decide what should happens when a user taps on a ListItem or message. **Note that we are passing the function as an arrow function**
+
+```javascript
+<ListItem
+  title={item.title}
+  subTitle={item.description}
+  image={item.image}
+  onPress={() => console.log("Message selected ", item)}
+/>
+```
 
 # ViewImageScreen
 

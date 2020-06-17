@@ -65,6 +65,7 @@ Very similar to card component. Its purpouse its to create an image with titlte 
 
 ## Structure
 
+- Wrap up everything inside Touchable Highlight
 - View, that will serve as container for wrapping elements and align them rowise.
 - Image
 - 2 AppText: Title and subtitle
@@ -72,7 +73,13 @@ Very similar to card component. Its purpouse its to create an image with titlte 
 
 ## Functionality
 
-Receives dynamically the title, subtitle and image it has to render from parent
+- TouchableHighlight wont work without onPress `definition`
+  - We can change the color show up when clicked with `underlayColor` prop.
+- Receives dynamically the title, subtitle and image it has to render from parent
+
+However, we dont have the logic for handling our selections because this component should be reusable.
+
+> What should happen when an user taps the item, should be decided by the consumer of the reusable.
 
 ## Styles
 
