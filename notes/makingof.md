@@ -41,31 +41,6 @@ For tagline: These are the styles for text below the image.
 - Create a view and put AppButton in it, apply padding to that view,
 - We also apply width: '100%' so it doesnt shinks our button
 
-# AppButton
-
-## Structure
-
-1. Create AppButton Component
-2. Create a TouchableOpacity component
-3. Place Text inside it
-
-## Styling
-
-1. Create style for button
-2. We give a `"100%"` width so it stretches dinamically
-3. `padding:15` to make it taller
-4. Justify and align so its centered
-5. Create style for text
-6. Assign styles to component
-
-## Functionality
-
-In `touchableOpacity` style property, we want to override backGround color so it the button can have color depending on what's set on the parent. So we use an array of styles, so the second overrides the first. The color will be set based on `color` prop that will sent from above.
-
-1. Text title will be set as a prop
-2. Button color will be set as a prop, by default is primary
-3. onPress will be a functionality decided by parent
-
 # ViewImageScreen
 
 ## Structure
@@ -90,32 +65,6 @@ For image:
 
 - We allow it to grow giving it "100%"
 
-# Card Component
-
-### Structure
-
-We send title, subtitle and image prop from app.js
-
-## Functionality
-
-- **Temporary solution**: We cant just pass in the image url as a prop and read it with require, because we cant load it dynamically, instead, we send the path along with require to card.
-
-- We send in custom style to our custom component AppText, to override defaults. But we have to make changes over there as well.
-
-```javascript
-const AppText = ({ children, style }) => {
-  return <Text style={[styles.text, style]}>{children}</Text>;
-};
-```
-
-### Style
-
-- The image is too big and does fit the screen
-- We create a container for text.
-- Apply padding so the space with text in card increases
-
-- We have overflow of the image inside container, thats why the rounder corners aren showing up, to solve this, we have to set in card container: `overflow:"hidden"`
-
 # ListingDetailsScreen
 
 ## Style
@@ -125,3 +74,22 @@ In main container we want set flex direction to row, because we want to laid the
 We set the imag borderRadius to be half of its weight and height, so it becomes a circle. And add a marging Right so there is space between image and text.
 
 -We add a container for text next to image, so we cant set flex direction column
+
+# MessagesScreen
+
+## Structure
+
+- We use flatlist and pass in our ListItem component.
+- We wrap everything up sinde `SafeAreaView`, so in Ios, doesnt interfer with the upper part.
+
+## Functionality
+
+We use `ItemSeparatorComponent` in **FlatList** to separate each element.
+We then creat a view that will serve as separator for each one. We then **extract that to a reusable component**
+
+> Notice that when we pass in the component to **ListItemSeparator** prop in FlatList, **we dont use <>**
+
+## Styles
+
+- We use padding in our wrapper safeAreaView if we are on Android to avoid covering upper part of the screen.
+  There are 2 ways to achieve this

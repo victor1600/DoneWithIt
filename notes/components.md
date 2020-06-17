@@ -179,3 +179,23 @@ For invoking functions
 ```
 
 > For custom alerts and user input, check recipes section!
+
+# FlatList
+
+## Props
+
+### Data
+
+Array of data
+
+### KeyExtractor
+
+We pass in the id of each message
+
+### renderItem
+
+We set it to a function to render each item, it recieves and object.
+
+- item
+- index
+- separators
