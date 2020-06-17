@@ -1,20 +1,18 @@
-# Reusable chunks of components
-
-## AppButton
+# AppButton
 
 It's a pure CSS view with touchableOpacity, in order to make it act like a button.
 
-### Structure
+## Structure
 
 1. Create AppButton Component
 2. Create a TouchableOpacity component
 3. Place Text inside it
 
-### Functionality
+## Functionality
 
 In `touchableOpacity` style property, we want to override `backGround color` so it the button can have color depending on what's set on the parent. So we use an array of styles, so the second overrides the first. The color will be set based on `color` prop that will sent from above.
 
-### Styles
+## Styles
 
 1. Create style for button
 2. We give a `"100%"` width so it stretches dinamically
@@ -23,35 +21,35 @@ In `touchableOpacity` style property, we want to override `backGround color` so 
 5. Create style for text
 6. Assign styles to component
 
-## AppText
+# AppText
 
 This is a text-based component that renders two different fonts depending on platform on which is running
 
-### Structure
+## Structure
 
-### Functionality
+## Functionality
 
 > We take advantage of {children} prop, which is a special prop that allows to pass children elements directly into component's output.
 
 - We set an array of styles inside style tag, so we can **override from outside** our styles defined here.
 
-### Style
+## Style
 
 - Different fontSize based on current platform
 
-## Card
+# Card
 
 We send title, subtitle and image prop from app.js
 
-### Structure
+## Structure
 
-### Functionality
+## Functionality
 
 - **Temporary solution: Sending required along with image URI**: We cant just pass in the image url as a prop and read it with require, because we cant load it dynamically, instead, we send the path along with require to card.
 
 - We send in custom style to our custom component AppText, to override defaults. But we have to make changes over there as well.
 
-### Style
+## Style
 
 - The image is too big and does fit the screen
 - We create a container for text.
@@ -59,24 +57,24 @@ We send title, subtitle and image prop from app.js
 
 - We have overflow of the image inside container, thats why the rounder corners aren showing up, to solve this, we have to set in card container: `overflow:"hidden"`
 
-## ListItem
+# ListItem
 
 Very similar to card component. Its purpouse its to create an image with titlte and subtitle to the the side.
 
 ![listItem](images/listItem.png)
 
-### Structure
+## Structure
 
 - View, that will serve as container for wrapping elements and align them rowise.
 - Image
 - 2 AppText: Title and subtitle
 - **View**: This view wraps text, its purpouse its to ignore row alignment in general container and align title and subtitle in columns.
 
-### Functionality
+## Functionality
 
 Receives dynamically the title, subtitle and image it has to render from parent
 
-### Styles
+## Styles
 
 - In container, we give it flexDirection of row, so image appaars side to side with text.
 
@@ -84,27 +82,27 @@ Receives dynamically the title, subtitle and image it has to render from parent
 
 - Specifiy size for text
 
-## ListItemSeparator
+# ListItemSeparator
 
 Extracted with the purpouse is to separate from element from another.
 
-### Structure
+## Structure
 
 - view
 
-### Style
+## Style
 
 - We create a ``line` setting height to 1 and with to fill the screen with "100%".
 
-## Screen
+# Screen
 
 Extracted with the purpouse of avoiding content to be placed to close to th border top of the screen on phones.
 
-### Structure
+## Structure
 
 - SafeAreaView works just on Ios.
 
-### Functionality
+## Functionality
 
 - We use `{children}`, so we can pass in another component and that will get placed inside our styled safeAreaView
 
@@ -124,7 +122,7 @@ const styles = StyleSheet.create({
 });
 ```
 
-### Style
+## Style
 
 The purpouse is to help Android stop showing content on the top, so we use
 We use the library **expo constants**
