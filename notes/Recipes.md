@@ -186,3 +186,9 @@ const styles = StyleSheet.create({
   },
 });
 ```
+
+## Modularazing
+
+- Write in the parent, the definition of how you want you child component to be
+- Create childs js file
+- Try to make it as reusable as possible

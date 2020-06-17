@@ -1,3 +1,17 @@
+# Account Screen
+
+## Stucture
+
+Create objects above that will mimic fetching from API
+
+- Wrap everything inside screen component
+- Create views that will function as section separators
+- We use a FlatList and send our custom ListItem component
+
+## Functionality
+
+## Styles
+
 # ListingDetailsScreen
 
 ![listing](images/ListingDetails.png)

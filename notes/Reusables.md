@@ -99,6 +99,14 @@ However, we dont have the logic for handling our selections because this compone
 
 > What should happen when an user taps the item, should be decided by the consumer of the reusable.
 
+- We will render the space between image and title and subtitle only if an image is sent
+
+> We validate if a prop is being sent or not and act differently based on that.
+
+We put the imageComponent that is being set between braces so if its undefined it doesnt render.
+
+We wrap subtitle between braces, so if hasnt been supplied, the title centers next to the icon
+
 ### Handling swipes
 
 Install: `expo install react-native-gesture-handler`
@@ -154,6 +162,7 @@ Extracted with the purpouse of avoiding content to be placed to close to th bord
 ## Structure
 
 - SafeAreaView works just on Ios.
+- We make it **support additional styles**
 
 ## Functionality
 
