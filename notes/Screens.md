@@ -12,6 +12,14 @@ Create objects above that will mimic fetching from API
 
 ## Styles
 
+# ListingsScreen
+
+## Structure
+
+We pass into teh KeyExtractor of the FlatList an id converted to string. IT WONT WORK WITH NUMBERS.
+
+## functionality
+
 # ListingDetailsScreen
 
 ![listing](images/ListingDetails.png)
