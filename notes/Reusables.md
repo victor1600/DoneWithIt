@@ -65,6 +65,7 @@ Very similar to card component. Its purpouse its to create an image with titlte 
 
 ## Structure
 
+- Wrap everything between Swipeable
 - Wrap up everything inside Touchable Highlight
 - View, that will serve as container for wrapping elements and align them rowise.
 - Image
@@ -81,6 +82,13 @@ However, we dont have the logic for handling our selections because this compone
 
 > What should happen when an user taps the item, should be decided by the consumer of the reusable.
 
+### Implementing swipes
+
+Install: `expo install react-native-gesture-handler`
+
+use renderRigthAction or renderLeftAction.
+We will pass in a function to the component so is reusable.
+
 ## Styles
 
 - In container, we give it flexDirection of row, so image appaars side to side with text.
@@ -88,6 +96,20 @@ However, we dont have the logic for handling our selections because this compone
 - Image has fixed size, and borderRadius set to its half, so its rounded. Also, it has margin so it stays separed from side text.
 
 - Specifiy size for text
+
+# ListItemDeleteAction
+
+Used along with Swipes animation.
+
+## Structure
+
+- A single view
+- Icon for deleting
+
+## Styles
+
+- The color and size of the view.
+- We align and justify to center so trash can appears at center of red box
 
 # ListItemSeparator
 

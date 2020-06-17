@@ -24,7 +24,7 @@
 ## Structure
 
 - Place everything inside Screen reusable, so its not so close to the top edge of the screen.
-- We use flatlist and pass in our **ListItem** custom component.
+- We use flatlist and pass in our **ListItem** custom component. We send in our reusable custom component of **ListItemDeleteAction**, we dont render it, we just pass in a reference to the function, thats why we dont use `<>`
 - We wrap everything up sinde `SafeAreaView`, so in Ios, doesnt interfer with the upper part.
 
 ## Functionality
