@@ -24,7 +24,7 @@
 ## Structure
 
 - Place everything inside Screen reusable, so its not so close to the top edge of the screen.
-- We use flatlist and pass in our **ListItem** custom component. We send in our reusable custom component of **ListItemDeleteAction**, we dont render it, we just pass in a reference to the function, thats why we dont use `<>`
+- We use flatlist and pass in our **ListItem** custom component. We send in our reusable custom component of **ListItemDeleteAction** along with its props
 - We wrap everything up sinde `SafeAreaView`, so in Ios, doesnt interfer with the upper part.
 
 ## Functionality
@@ -34,20 +34,21 @@
 We use `ItemSeparatorComponent` in **FlatList** to separate each element.
 We send in our custom separator.
 
-> Notice that when we pass in the component to **ListItemSeparator** prop in FlatList, **we dont use <>**
+> Notice that when we pass in the component to **ListItemSeparator** prop in FlatList, **we dont use <>** But ListItemDeleteAction does, because we need to send in props
 
-### Desing patern
+- We create a function for deleting that will be passed in to the `ListItemDeleteAction`.
+  - It will delete the message from the message array.
+  - We call the server so we delete
 
-This component should decide what should happens when a user taps on a ListItem or message. **Note that we are passing the function as an arrow function**
+Well create a `useState` hook.
 
-```javascript
-<ListItem
-  title={item.title}
-  subTitle={item.description}
-  image={item.image}
-  onPress={() => console.log("Message selected ", item)}
-/>
-```
+### Pull to Refresh
+
+Well need a boolea state hook to decide if refreshing or not.
+Inside FlatList component we use
+
+- **refreshing**: set to teh value of hook
+- **OnRefresh**: This will the backend to retrieve the list later. For now, well simulate putting a new array.
 
 # ViewImageScreen
 

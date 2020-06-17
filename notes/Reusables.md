@@ -57,6 +57,23 @@ We send title, subtitle and image prop from app.js
 
 - We have overflow of the image inside container, thats why the rounder corners aren showing up, to solve this, we have to set in card container: `overflow:"hidden"`
 
+# Icon
+
+## Structure
+
+We pass in name, size, the backgroundColor and iconColor, so caller decides how it should render.
+
+- View is the circle
+- Icon inside
+
+## Functionality
+
+## Style
+
+Icon will be half the size of the circle. We set the style defined in the prop.
+
+- We want to put the icon in the middle of the circle, so we align everything inside the container view
+
 # ListItem
 
 Very similar to card component. Its purpouse its to create an image with titlte and subtitle to the the side.
@@ -82,7 +99,7 @@ However, we dont have the logic for handling our selections because this compone
 
 > What should happen when an user taps the item, should be decided by the consumer of the reusable.
 
-### Implementing swipes
+### Handling swipes
 
 Install: `expo install react-native-gesture-handler`
 
@@ -103,8 +120,13 @@ Used along with Swipes animation.
 
 ## Structure
 
+- TouchableWithoutFeedback
 - A single view
 - Icon for deleting
+
+## Functionality
+
+- We wrap everything up inside TouchableWithoutFeedback, which will trigger a function to delete. with **onPress** But the delete function will get passed from above
 
 ## Styles
 
@@ -122,6 +144,8 @@ Extracted with the purpouse is to separate from element from another.
 ## Style
 
 - We create a ``line` setting height to 1 and with to fill the screen with "100%".
+
+- flex:1, so component takes entire screen when pulling
 
 # Screen
 
